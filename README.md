@@ -53,9 +53,62 @@ I start by applying the display filter `ip.addr == 142.250.1.139` in the text bo
 
 The previous query significantly reduced the list of packets displayed and only shows packets where either the source or the destination IP address matches the address I entered. At this point, only two packet colors are used: light pink for ICMP protocol packets and light green for TCP (and HTTP, which is a subset of TCP) packets. 
 
+---
 I then, double-clicked the first packet that lists TCP as the protocol, opening the packet's details window pane shown:
 
 ![Z3](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/796f5fd2-8d0b-4b0e-baa2-a2539faeee74)
 
 The upper section of the window pane contains subtrees where Wireshark provides an analysis of the various parts of our network packet. The lower section of the window contains the raw packet data displayed in hexadecimal and ASCII text. There is also placeholder text for fields where the character data does not apply, as indicated by the dot `“.”`.
+
+---
+Double-clicking **Frame** - the first subtree in the upper section, provides details about the overall network packet, or frame, including the frame length and the arrival time of the packet. At this level, we’re viewing information about the entire packet of data.
+The window pane displays as shown below:
+
+![Z4](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/d3486505-f079-4a68-8295-d92d972d618f)
+
+---
+Collapsing the first subtree and double-clicking **Ethernet II**, the second subtree - we observe details about the packet at the Ethernet level, including the source and destination MAC addresses and the type of internal protocol that the Ethernet packet contains. The window pane displays as shown below:
+
+![Z5](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/7dedc356-1e6c-49b9-a7e2-f2ad4ffff0b4)
+
+---
+Collapsing the second subtree and double-clicking **Internet Protocol Version 4**, the third subtree - provides packet data about the Internet Protocol (IP) data contained in the Ethernet packet. It contains information such as the source and destination IP addresses and the Internal Protocol (for example, TCP or UDP), which is carried inside the IP packet. The source and destination IP addresses shown here match the source and destination IP addresses in the summary display for this packet in the main Wireshark window.
+The window pane displays as shown below:
+
+![Z6](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/2d2e3f84-6fb5-44d5-af9c-83d35c4f609e)
+
+---
+Collapsing the third subtree and double-clicking **Transmission Control Protocol**, the fourth subtree - provides detailed information about the TCP packet, including the source and destination TCP ports, the TCP sequence numbers, and the TCP flags.
+
+![Z7](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/fcd2e3b7-ce35-4c01-a8d7-4a72aa219384)
+
+The source port and destination port listed here match the source and destination ports in the info column of the summary display for this packet in the list of all of the packets in the main Wireshark window. 
+In the window pane displayed, We also observe that Port 80 is the TCP destination port for this packet. It contains the initial web request to an HTTP website that will typically be listening on TCP port 80.
+
+---
+
+In the **Transmission Control Protocol** subtree, scrolling down and double-clicking **Flags**.
+This provides a detailed view of the TCP flags set in this packet - as shown below:
+
+![Z8](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/e188a8d7-d047-4cfe-8e83-44d0139ef193)
+
+
+### Task 3. Use filters to select packets
+
+In this task, I use filters to analyze specific network packets based on where the packets came from or where they were sent. l explore select packets using either their physical Ethernet Media Access Control (MAC) address or their Internet Protocol (IP) address.
+
+I started by applying a filter to select traffic from a specific source IP address by querying `ip.src == 142.250.1.139`. This query returns a filtered list with fewer entries than before. It only contains packets that came from 142.250.1.139.
+
+![Z1](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/82187bd3-14cd-4c3f-8791-6d11b7ee8e73)
+
+
+I then moved on to filter to select traffic for a specific destination IP address only  by querying `ip.dst == 142.250.1.139`. This query returns a filtered list is that contains only packets that were sent to 142.250.1.139.
+
+![Z2](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/c464cfdd-33b4-411b-afd6-1c3928ae7b76)
+
+
+To filter and select traffic to or from a specific Ethernet MAC address, I queried `eth.addr == 42:01:ac:15:e0:02`. This filters traffic related to one MAC address, regardless of the other protocols involved:
+
+---
+
 
