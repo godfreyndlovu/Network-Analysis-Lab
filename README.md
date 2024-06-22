@@ -11,9 +11,10 @@ In this project, I am conducting a network analysis on packet capture files usin
 
 - Wireshark
 - tcpdump
-- Google Cloud (Qwiklabs-based lab environment)
+- Qwiklabs
 
-**The project scenario is stated below**:
+
+#### The project scenario is stated below:
 
 ## Scenario 1 -  Network filtering using Wireshark
 _In this scenario, you’re a security analyst investigating traffic to a website._
@@ -163,8 +164,6 @@ This filters packets containing web requests made with the curl command in this 
 
 ![Z9](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/442b409d-8fee-4030-9d4d-f96da1f17cbd)
 
-
-## Conclusion
 
 ## Conclusion
 
