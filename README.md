@@ -3,10 +3,15 @@ In this project, I am conducting a network analysis on packet capture files usin
 
 ### Skills Learned
 
-- 
+- Network filtering and traffic analysis
+- Packet inspection
+- Utilization of specific filters for targeted network traffic investigation
 
 ### Tools Used
 
+- Wireshark
+- tcpdump
+- Google Cloud (Qwiklabs-based lab environment)
 
 **The project scenario is stated below**:
 
@@ -161,5 +166,11 @@ This filters packets containing web requests made with the curl command in this 
 
 ## Conclusion
 
+## Conclusion
 
+In this project, I effectively analyzed network traffic using Wireshark and tcpdump. By applying various filters, I efficiently sifted through data packets to identify relevant information. I also identified source and destination IP addresses, examined the protocols used during web browsing sessions, and analyzed payload data within packets.
+
+I explored network layers and protocols in detail, gaining insights into the structure and flow of data. I specifically analyzed DNS traffic to understand domain name queries and their corresponding IP addresses, and inspected TCP packets to identify web requests and responses.
+
+Through this project, I enhanced my proficiency in network traffic analysis and developed a solid foundation in using Wireshark and tcpdump for real-world network security and troubleshooting scenarios. These skills are crucial for any security analyst or network professional, enabling effective monitoring and analysis of network communications.
 
