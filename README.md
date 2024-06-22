@@ -109,6 +109,21 @@ I then moved on to filter to select traffic for a specific destination IP addres
 
 To filter and select traffic to or from a specific Ethernet MAC address, I queried `eth.addr == 42:01:ac:15:e0:02`. This filters traffic related to one MAC address, regardless of the other protocols involved:
 
----
+I then opened the first packet in the list and opened the **Ethernet II** subtree - the MAC address specified in the filter is listed as either the source or destination address in the expanded Ethernet II subtree.
 
+I then moved to open the **Internet Protocol Version 4** subtree and scrolled down to the fields **Time to Live** and **Protocol**.
+
+The **Protocol** field in the Internet Protocol Version 4 subtree indicates which IP internal protocol is contained in the packet.
+
+![Z3](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/274ece45-cb2c-4006-b894-53630d147640)
+
+From the Wireshark window pane above, we observe that ICMP is the internal protocol contained in the first packet from MAC address 42:01:ac:15:e0:02.
+
+### Task 4. Use filters to explore DNS packets
+
+In this task, I filter to select and examine DNS traffic. Once I've selected the DNS traffic, l drill down into the protocol to examine how the DNS packet data contains both queries (names of internet sites that are being looked up) and answers (IP addresses that are being sent back by a DNS server when a name is successfully resolved).
+
+To filter and select UDP port 53 traffic, I queried `udp.port == 53`. DNS traffic uses UDP port 53, so it only lists traffic related to DNS queries and responses, as shown below: 
+
+![4](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/49b0b86c-12ee-491a-b31d-f39efdd6f9b3)
 
