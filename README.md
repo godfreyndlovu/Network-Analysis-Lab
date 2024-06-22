@@ -145,6 +145,21 @@ In this task, l use additional filters to select and examine TCP packets. It inv
 To filter for TCP port 80 traffic, I queried `tcp.port == 80`, and the results are as shown below:
 
 ![Z6](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/de8f9aba-8091-4b8d-9958-5e2213264a13)
-
-
 TCP port 80 is the default port that is associated with web traffic and we observe that quite a few packets were created when the user accessed the web page http://opensource.google.com.
+
+On selecting the first packet in the list - with the Destination IP address of 169.254.169.254, we observe that the **Time to Live value** of the packet as specified in the Internet Protocol Version 4 subtree is `64.`
+![Z7](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/6513bf7c-86a3-4cc0-a7e5-26e80b027e0f)
+
+The Frame Length of the packet as specified in the Frame subtree is `54` bytes
+![Z8](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/23e8b97c-b3b9-411d-83f0-1f1dac430cf8)
+
+Applying the `tcp contains "curl"`filter selects TCP packet data that contains specific text data - in this case, "curl."
+This filters packets containing web requests made with the curl command in this sample packet capture file - as shown below:
+
+![Z9](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/442b409d-8fee-4030-9d4d-f96da1f17cbd)
+
+
+## Conclusion
+
+
+
