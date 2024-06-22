@@ -117,7 +117,8 @@ The **Protocol** field in the Internet Protocol Version 4 subtree indicates whic
 
 ![Z3](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/274ece45-cb2c-4006-b894-53630d147640)
 
-From the Wireshark window pane above, we observe that ICMP is the internal protocol contained in the first packet from MAC address 42:01:ac:15:e0:02.
+From the Wireshark window pane above, we observe that ICMP is the internal protocol contained in the first packet from MAC address `42:01:ac:15:e0:02.`
+`
 
 ### Task 4. Use filters to explore DNS packets
 
@@ -127,3 +128,23 @@ To filter and select UDP port 53 traffic, I queried `udp.port == 53`. DNS traffi
 
 ![4](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/49b0b86c-12ee-491a-b31d-f39efdd6f9b3)
 
+On double-clicking the first packet in the list, the detailed packet is displayed on the window.
+
+Expanding the **Domain Name System (query)** and selecting **Queries.**
+
+We notice that the name of the website that was queried is _opensource.google.com_ - as shown below:
+
+![Z5](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/4fbef1a6-1652-4b15-8dac-e49e649cf708)
+
+We also note that the IP address 142.250.1.139 is displayed when the **Answers** section for the DNS query for opensource.google.com is expanded.
+
+
+## Task 5. Use filters to explore TCP packets
+In this task, l use additional filters to select and examine TCP packets. It involves searching for text that is present in payload data contained inside network packets. This locates packets based on something such as a name or some other text that is of interest.
+
+To filter for TCP port 80 traffic, I queried `tcp.port == 80`, and the results are as shown below:
+
+![Z6](https://github.com/godfreyndlovu/Network-Analysis-Lab/assets/102636518/de8f9aba-8091-4b8d-9958-5e2213264a13)
+
+
+TCP port 80 is the default port that is associated with web traffic and we observe that quite a few packets were created when the user accessed the web page http://opensource.google.com.
